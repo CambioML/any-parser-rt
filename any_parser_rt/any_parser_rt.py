@@ -28,7 +28,7 @@ class AnyParserRT:
         self._url = url
         self._api_key = api_key
 
-    def extract(self, file_path: str) -> Tuple[str, str]:
+    def extract(self, file_path: str, extract_args: dict = None) -> Tuple[str, str]:
         """Extract data in real-time.
 
         Args:
@@ -55,6 +55,9 @@ class AnyParserRT:
             "file_content": encoded_file,
             "file_type": file_extension,
         }
+
+        if extract_args is not None:
+            payload["extract_args"] = extract_args
 
         # Set the headers
         headers = {
