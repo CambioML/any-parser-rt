@@ -4,8 +4,7 @@ import base64
 import json
 import time
 from pathlib import Path
-from typing import Tuple
-
+from typing import Tuple, Dict, Optional
 import requests
 
 URL = "https://k7u1c342dc.execute-api.us-west-2.amazonaws.com/v1/extract"
@@ -28,12 +27,12 @@ class AnyParserRT:
         self._url = url
         self._api_key = api_key
 
-    def extract(self, file_path: str) -> Tuple[str, str]:
+    def extract(self, file_path: str, extract_args: Optional[Dict] = None) -> Tuple[str, str]:
         """Extract data in real-time.
 
         Args:
             file_path (str): The path to the file to be parsed.
-
+            extract_args (Optional[Dict]): Additional extraction arguments added to prompt
         Returns:
             tuple(str, str): The extracted data and the time taken.
         """
@@ -55,6 +54,9 @@ class AnyParserRT:
             "file_content": encoded_file,
             "file_type": file_extension,
         }
+
+        if extract_args is not None and isinstance(extract_args, dict):
+            payload["extract_args"] = extract_args
 
         # Set the headers
         headers = {
