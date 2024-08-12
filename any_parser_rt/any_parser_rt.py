@@ -8,26 +8,14 @@ from typing import Dict, Optional, Tuple
 
 import requests
 
-SYNC_URL = "https://k7u1c342dc.execute-api.us-west-2.amazonaws.com/v1/extract"
-ASYNC_UPLOAD_URL = (
-    "https://k7u1c342dc.execute-api.us-west-2.amazonaws.com/v1/async/upload"
-)
-ASYNC_FETCH_URL = (
-    "https://k7u1c342dc.execute-api.us-west-2.amazonaws.com/v1/async/fetch"
-)
+BASE_URL = "https://k7u1c342dc.execute-api.us-west-2.amazonaws.com/v1"
 TIMEOUT = 30
 
 
 class AnyParserRT:
     """AnyParser RT: Real-time parser for any data format."""
 
-    def __init__(
-        self,
-        api_key: str,
-        url: str = SYNC_URL,
-        upload_url: str = ASYNC_UPLOAD_URL,
-        fetch_url: str = ASYNC_FETCH_URL,
-    ) -> None:
+    def __init__(self, api_key: str, base_url: str = BASE_URL) -> None:
         """Initialize the AnyParser RT object.
 
         Args:
@@ -37,9 +25,9 @@ class AnyParserRT:
         Returns:
             None
         """
-        self._sync_url = url
-        self._async_upload_url = upload_url
-        self._async_fetch_url = fetch_url
+        self._sync_url = f"{base_url}/extract"
+        self._async_upload_url = f"{base_url}/async/upload"
+        self._async_fetch_url = f"{base_url}/async/fetch"
         self._api_key = api_key
 
     def extract(
@@ -167,7 +155,7 @@ class AnyParserRT:
         else:
             return f"Request error: {response}"
 
-    def async_result(
+    def async_fetch(
         self,
         file_id: str,
         sync: bool = True,
