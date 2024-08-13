@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "any-parser-rt"
-version = "0.0.0"
+version = "0.0.1"
 description = ""
 authors = ["Rachel Hu <goldpiggy@berkeley.edu>"]
 readme = "README.md"
