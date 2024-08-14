@@ -8,14 +8,14 @@ from typing import Dict, Optional, Tuple
 
 import requests
 
-BASE_URL = "https://k7u1c342dc.execute-api.us-west-2.amazonaws.com/v1"
+PUBLIC_SHARED_BASE_URL = "https://rgs3xoes56.execute-api.us-west-2.amazonaws.com/v1"
 TIMEOUT = 30
 
 
 class AnyParserRT:
     """AnyParser RT: Real-time parser for any data format."""
 
-    def __init__(self, api_key: str, base_url: str = BASE_URL) -> None:
+    def __init__(self, api_key: str, base_url: str = PUBLIC_SHARED_BASE_URL) -> None:
         """Initialize the AnyParser RT object.
 
         Args:
