@@ -47,7 +47,7 @@ class AnyParserRT:
         if not Path(file_path).is_file():
             return "Error: File does not exist", "File does not exist"
 
-        if file_extension in ["pdf", "docx"]:
+        if file_extension in ["pdf", "doc", "docx", "ppt", "pptx"]:
             # Encode the PDF file content in base64
             with open(file_path, "rb") as file:
                 encoded_file = base64.b64encode(file.read()).decode("utf-8")
@@ -108,7 +108,7 @@ class AnyParserRT:
         if not Path(file_path).is_file():
             return "Error: File does not exist", "File does not exist"
 
-        if file_extension not in ["pdf", "docx"]:
+        if file_extension not in ["pdf", "doc", "docx", "ppt", "pptx"]:
             return "Error: Unsupported file type", "Unsupported file type"
 
         file_name = Path(file_path).name
