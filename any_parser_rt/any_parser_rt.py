@@ -8,7 +8,7 @@ from typing import Dict, Optional, Tuple
 
 import requests
 
-PUBLIC_SHARED_BASE_URL = "https://k8xoa4h04k.execute-api.us-west-2.amazonaws.com/v1"
+PUBLIC_SHARED_BASE_URL = "https://api.cambio-ai.com"
 TIMEOUT = 30
 
 
