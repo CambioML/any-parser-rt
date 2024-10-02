@@ -1,25 +1,7 @@
-# How to use
+# AnyParser RT (Archived)
 
-## Sync SDK
-```
-from any_parser_rt.any_parser_rt import AnyParserRT
+**This repository is officially archived.**
 
-ap_rt = AnyParserRT(api_key="...")
+Please use [https://github.com/CambioML/any-parser](https://github.com/CambioML/any-parser) instead.
 
-md_output, total_time = ap_rt.extract(file_path="./data/test.pdf")
-```
-Check [example](example/example.ipynb)
-
-## Async SDK
-
-```
-from any_parser_rt.any_parser_rt import AnyParserRT
-
-ap_rt = AnyParserRT(api_key="...")
-
-file_id = ap_rt.async_extract(file_path="./data/test.pdf")
-
-md = ap_rt.async_fetch(file_id=file_id)
-```
-
-Check [example](example/async_example.ipynb)
+This project has been superseded by the new AnyParser repository. For the latest updates, features, and support, please visit the new repository linked above.
